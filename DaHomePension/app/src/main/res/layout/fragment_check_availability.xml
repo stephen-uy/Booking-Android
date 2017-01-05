@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
@@ -28,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="18dp"
-                android:text="Check-in"/>
+                android:text="@string/check_in"/>
             <LinearLayout
                 android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
@@ -92,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="18dp"
-                android:text="Check-out"/>
+                android:text="@string/check_out"/>
             <LinearLayout
                 android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
@@ -209,5 +210,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_button_rounded"
         android:textColor="@android:color/white"
-        android:text="Search"/>
+        android:textSize="18dp"
+        android:text="@string/search"/>
 </LinearLayout>
+</layout>

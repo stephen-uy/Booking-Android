@@ -1,8 +1,31 @@
 <resources>
-    <string name="app_name">DaHomePension</string>
+    <string name="app_name">DaHome Pension</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- Menu text -->
+    <string name="booking">Book</string>
+    <string name="history">History</string>
+
+    <!-- button text -->
+    <string name="search">Search</string>
+
+    <!-- textview text -->
+    <string name="check_in">Check-in</string>
+    <string name="check_out">Check-out</string>
+    <plurals name="numberOfGuest">
+        <item quantity="one">Guest</item>
+        <item quantity="other">Guests</item>
+    </plurals>
+    <plurals name="numberOfRooms">
+        <item quantity="one">Room</item>
+        <item quantity="other">Rooms</item>
+    </plurals>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

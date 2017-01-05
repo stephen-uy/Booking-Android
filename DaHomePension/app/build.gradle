@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "24.0.3"
+    dataBinding.enabled = true
+
     defaultConfig {
         applicationId "com.android.stephen.dahomepension"
         minSdkVersion 16
@@ -26,5 +28,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support:support-v4:25.1.0'
     testCompile 'junit:junit:4.12'
 }
