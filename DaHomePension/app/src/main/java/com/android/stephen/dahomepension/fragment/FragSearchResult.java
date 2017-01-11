@@ -11,17 +11,18 @@ import android.view.ViewGroup;
 import com.android.stephen.dahomepension.R;
 import com.android.stephen.dahomepension.callback.FragmentCallback;
 import com.android.stephen.dahomepension.databinding.FragmentCheckAvailabilityBinding;
+import com.android.stephen.dahomepension.databinding.FragmentSearchResultBinding;
 
-public class FragCheckAvailability extends Fragment {
+public class FragSearchResult extends Fragment {
     private FragmentCallback fragmentCallback;
-    FragmentCheckAvailabilityBinding fragmentCheckAvailabilityBinding;
+    FragmentSearchResultBinding fragmentSearchResultBinding;
 
-    public FragCheckAvailability() {
+    public FragSearchResult() {
         // Required empty public constructor
     }
 
-    public static FragCheckAvailability newInstance(String param1, String param2) {
-        FragCheckAvailability fragment = new FragCheckAvailability();
+    public static FragSearchResult newInstance(String param1, String param2) {
+        FragSearchResult fragment = new FragSearchResult();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -37,10 +38,10 @@ public class FragCheckAvailability extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        fragmentCheckAvailabilityBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_check_availability,
+        fragmentSearchResultBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_search_result,
                 container, false);
-        getActivity().setTitle("Check Availability");
-        return fragmentCheckAvailabilityBinding.getRoot();
+        getActivity().setTitle("11 Jan - 12 Jan" + "\n" + "4 guests");
+        return fragmentSearchResultBinding.getRoot();
     }
 
     @Override

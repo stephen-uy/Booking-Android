@@ -18,8 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
+        android:fitsSystemWindows="false"
         app:headerLayout="@layout/nav_header_home_page"
-        app:menu="@menu/activity_check_availability_drawer" />
+        app:menu="@menu/activity_home_page_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

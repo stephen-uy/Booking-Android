@@ -4,10 +4,10 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_gray"
@@ -30,6 +30,14 @@
                 android:gravity="center"
                 android:textSize="18dp"
                 android:text="@string/check_in"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/divider1h"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="#000000" />
             <LinearLayout
                 android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
@@ -94,6 +102,14 @@
                 android:gravity="center"
                 android:textSize="18dp"
                 android:text="@string/check_out"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/divider2h"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="#000000" />
             <LinearLayout
                 android:layout_marginTop="4dp"
                 android:layout_width="match_parent"

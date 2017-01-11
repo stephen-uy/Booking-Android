@@ -1,10 +1,10 @@
 package com.android.stephen.dahomepension.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,34 +14,50 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.stephen.dahomepension.R;
+import com.android.stephen.dahomepension.callback.FragmentCallback;
+import com.android.stephen.dahomepension.fragment.FragCheckAvailability;
+import com.android.stephen.dahomepension.fragment.FragHistory;
+import com.android.stephen.dahomepension.utils.Helper;
 
 public class HomePage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, FragmentCallback {
+
+    Toolbar toolbar;
+    NavigationView navigationView;
+    FragCheckAvailability fragCheckAvailability;
+    FragHistory fragHistory;
+    private String tagCheckAvailability = "check";
+    private String tagHistory = "history";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setUpToolBar();
+        setUpDrawer();
+        setUpFragments();
+    }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    private void setUpFragments() {
+        fragCheckAvailability = new FragCheckAvailability();
+        fragHistory = new FragHistory();
+        Helper.addFragment(this, fragCheckAvailability, R.id.content_home_page_body, tagCheckAvailability);
+    }
 
+    private void setUpDrawer() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void setUpToolBar(){
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
@@ -50,14 +66,18 @@ public class HomePage extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (fragCheckAvailability.isVisible()){
+                finish();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.check_availability, menu);
+//        getMenuInflater().inflate(R.menu.check_availability, menu);
         return true;
     }
 
@@ -82,22 +102,19 @@ public class HomePage extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_booking) {
+            Helper.replaceFragment(this, fragCheckAvailability, R.id.content_home_page_body, tagCheckAvailability);
+        } else if (id == R.id.nav_history) {
+            Helper.replaceFragment(this, fragHistory, R.id.content_home_page_body, tagHistory);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentCallback() {
+
     }
 }

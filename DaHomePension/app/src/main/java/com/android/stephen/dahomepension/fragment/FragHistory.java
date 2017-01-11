@@ -1,7 +1,7 @@
 package com.android.stephen.dahomepension.fragment;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,18 +10,16 @@ import android.view.ViewGroup;
 
 import com.android.stephen.dahomepension.R;
 import com.android.stephen.dahomepension.callback.FragmentCallback;
-import com.android.stephen.dahomepension.databinding.FragmentCheckAvailabilityBinding;
 
-public class FragCheckAvailability extends Fragment {
+public class FragHistory extends Fragment {
     private FragmentCallback fragmentCallback;
-    FragmentCheckAvailabilityBinding fragmentCheckAvailabilityBinding;
 
-    public FragCheckAvailability() {
+    public FragHistory() {
         // Required empty public constructor
     }
 
-    public static FragCheckAvailability newInstance(String param1, String param2) {
-        FragCheckAvailability fragment = new FragCheckAvailability();
+    public static FragHistory newInstance(String param1, String param2) {
+        FragHistory fragment = new FragHistory();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -37,10 +35,8 @@ public class FragCheckAvailability extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        fragmentCheckAvailabilityBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_check_availability,
-                container, false);
-        getActivity().setTitle("Check Availability");
-        return fragmentCheckAvailabilityBinding.getRoot();
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_frag_history, container, false);
     }
 
     @Override
